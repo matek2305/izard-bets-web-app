@@ -1,5 +1,4 @@
 import React from 'react';
-import Competition from './Competition';
 
 class CompetitionList extends React.Component {
   state = {
@@ -20,10 +19,14 @@ class CompetitionList extends React.Component {
   }
 
   render() {
-    const { competitions } = this.state;
-    return competitions.map(competition => (
-        <Competition {...competition} />
-    ));
+    const competitionItems = this.state.competitions
+      .map(competition => <li>{competition.name}</li>);
+
+    return (
+      <ul>
+        {competitionItems}
+      </ul>
+    )
   }
 
 }
