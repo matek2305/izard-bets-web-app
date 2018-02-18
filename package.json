@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-redux-form": "^1.16.5",
@@ -20,10 +21,16 @@
     "eject": "react-scripts eject"
   },
   "proxy": {
-    "/rest/api": {
+    "/api/izard": {
       "target": "http://localhost:8080",
       "pathRewrite": {
-        "^/rest/api": ""
+        "^/api/izard": ""
+      }
+    },
+    "/api/football-data": {
+      "target": "http://api.football-data.org/v1",
+      "pathRewrite": {
+        "^/api/football-data": ""
       }
     }
   }

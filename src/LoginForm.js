@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field } from 'react-redux-form';
+import { Button } from 'react-bootstrap';
 
 const LoginForm = ({ user }) => (
   <form>
@@ -14,9 +15,9 @@ const LoginForm = ({ user }) => (
       <input type="password"/>
     </Field>
 
-    <button>
+    <Button bsStyle="success">
       Log in as {user.username}
-    </button>
+    </Button>
   </form>
 );
 
