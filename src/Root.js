@@ -1,10 +1,19 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import LoginFrom from './LoginForm'
+import { Grid, Row, Col } from 'react-bootstrap';
+import EventForm from './EventForm'
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    <LoginFrom/>
+    <Grid>
+      <Row>
+        <Col lg={2}></Col>
+        <Col lg={6} className="align-middle">
+          <EventForm/>
+        </Col>
+        <Col lg={2}></Col>
+      </Row>
+    </Grid>
   </Provider>
 );
 
