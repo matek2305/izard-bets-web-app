@@ -1,0 +1,9 @@
+.container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.form {
+  width: 500px;
+  margin: 16px;
+}

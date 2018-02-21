@@ -1,10 +1,11 @@
 import React from 'react';
 import { Form, FormGroup, Col, ControlLabel, FormControl } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import styles from './EventForm.css';
 
 const EventForm = () => (
-  <div style={{ display: 'table-cell', verticalAlign: 'middle' }}>
-    <Form horizontal style={{ width: '500px', margin: '16px' }}>
+  <div className={styles.container}>
+    <Form horizontal className={styles.form}>
       <FormGroup controlId="formHomeTeam">
         <Col componentClass={ControlLabel} sm={4}>
           Home team

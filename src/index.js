@@ -1,8 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
-import Root from "./Root";
+import './index.css';
+import Root from "./components/Root";
 import configureStore from "./configureStore";
+import registerServiceWorker from './registerServiceWorker';
 
 const store = configureStore();
 render(
