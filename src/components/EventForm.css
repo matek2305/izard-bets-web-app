@@ -3,7 +3,16 @@
   vertical-align: middle;
 }
 
+.header {
+  text-align: center;
+}
+
 .form {
   width: 500px;
   margin: 16px;
+}
+
+.description {
+  resize: none;
+  min-height: 120px;
 }

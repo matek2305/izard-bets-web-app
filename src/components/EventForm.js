@@ -5,6 +5,7 @@ import styles from './EventForm.css';
 
 const EventForm = () => (
   <div className={styles.container}>
+    <h1 className={styles.header}>Create event</h1>
     <Form horizontal className={styles.form}>
       <FormGroup controlId="formHomeTeam">
         <Col componentClass={ControlLabel} sm={4}>
@@ -26,10 +27,14 @@ const EventForm = () => (
 
       <FormGroup controlId="formEventDate">
         <Col componentClass={ControlLabel} sm={4}>
-          Date
+          Description
         </Col>
         <Col sm={8}>
-          <FormControl type="date"/>
+          <FormControl
+            className={styles.description}
+            componentClass="textarea"
+            placeholder="enter description"
+          />
         </Col>
       </FormGroup>
 
