@@ -14,7 +14,7 @@ const EventForm = () => (
     </h1>
     <form className="event-form">
       <Row>
-        <Col sm={6}>
+        <Col md={7} sm={12}>
           <FormGroup controlId="formHomeTeam">
             <ControlLabel>Home team</ControlLabel>
             <FormControl type="text" placeholder="enter home team name"/>
@@ -45,7 +45,7 @@ const EventForm = () => (
           </FormGroup>
         </Col>
 
-        <Col sm={6}>
+        <Col md={5} sm={12}>
           <FormGroup controlId="formEventDate">
             <ControlLabel>When</ControlLabel>
             <InputMoment moment={moment()} className="event-form-date-picker" />
@@ -54,8 +54,10 @@ const EventForm = () => (
       </Row>
 
       <Row>
-        <Col sm={6} className="event-form-btn-col">
-          <Button type="submit" bsSize="large">Create your event</Button>
+        <Col md={7} sm={12} className="event-form-btn-col">
+          <Button bsStyle="primary" bsSize="large">
+            Create your event
+          </Button>
         </Col>
       </Row>
     </form>
