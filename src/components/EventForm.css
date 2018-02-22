@@ -1,0 +1,26 @@
+.event-form-container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.event-form-header {
+  text-align: center;
+  margin: 32px;
+}
+
+.event-form {
+  width: 800px;
+}
+
+.event-form-desc {
+  resize: none;
+  min-height: 120px;
+}
+
+.event-form-date-picker {
+  width: 100%;
+}
+
+.event-form-btn-col {
+  text-align: right;
+}

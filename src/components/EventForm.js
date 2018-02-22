@@ -5,13 +5,14 @@ import { FormGroup, Col, Row, ControlLabel, FormControl } from 'react-bootstrap'
 import { Button } from 'react-bootstrap';
 
 import 'input-moment/dist/input-moment.css';
+import './EventForm.css';
 
 const EventForm = () => (
-  <div style={{ display: 'table-cell', verticalAlign: 'middle' }}>
-    <h1 style={{ textAlign: 'center', margin: '32px' }}>
+  <div className="event-form-container">
+    <h1 className="event-form-header">
       Event details
     </h1>
-    <form style={{ width: '800px' }}>
+    <form className="event-form">
       <Row>
         <Col sm={6}>
           <FormGroup controlId="formHomeTeam">
@@ -39,7 +40,7 @@ const EventForm = () => (
             <FormControl
               componentClass="textarea"
               placeholder="enter description"
-              style={{ resize: 'none', minHeight: '120px' }}
+              className="event-form-desc"
             />
           </FormGroup>
         </Col>
@@ -47,13 +48,13 @@ const EventForm = () => (
         <Col sm={6}>
           <FormGroup controlId="formEventDate">
             <ControlLabel>When</ControlLabel>
-            <InputMoment moment={moment()} style={{ width: '100%' }}/>
+            <InputMoment moment={moment()} className="event-form-date-picker" />
           </FormGroup>
         </Col>
       </Row>
 
       <Row>
-        <Col sm={6} style={{ textAlign: 'right' }}>
+        <Col sm={6} className="event-form-btn-col">
           <Button type="submit" bsSize="large">Create your event</Button>
         </Col>
       </Row>
