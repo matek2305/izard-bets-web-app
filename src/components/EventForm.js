@@ -1,49 +1,63 @@
 import React from 'react';
-import { Form, FormGroup, Col, ControlLabel, FormControl } from 'react-bootstrap';
+import moment from 'moment';
+import InputMoment from 'input-moment';
+import { FormGroup, Col, Row, ControlLabel, FormControl } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
-import styles from './EventForm.css';
+
+import 'input-moment/dist/input-moment.css';
 
 const EventForm = () => (
-  <div className={styles.container}>
-    <h1 className={styles.header}>Create event</h1>
-    <Form horizontal className={styles.form}>
-      <FormGroup controlId="formHomeTeam">
-        <Col componentClass={ControlLabel} sm={4}>
-          Home team
-        </Col>
-        <Col sm={8}>
-          <FormControl type="text" placeholder="home team name"/>
-        </Col>
-      </FormGroup>
+  <div style={{ display: 'table-cell', verticalAlign: 'middle' }}>
+    <h1 style={{ textAlign: 'center', margin: '32px' }}>
+      Event details
+    </h1>
+    <form style={{ width: '800px' }}>
+      <Row>
+        <Col sm={6}>
+          <FormGroup controlId="formHomeTeam">
+            <ControlLabel>Home team</ControlLabel>
+            <FormControl type="text" placeholder="enter home team name"/>
+          </FormGroup>
 
-      <FormGroup controlId="formAwayTeam">
-        <Col componentClass={ControlLabel} sm={4}>
-          Away team
-        </Col>
-        <Col sm={8}>
-          <FormControl type="text" placeholder="away team name"/>
-        </Col>
-      </FormGroup>
+          <FormGroup controlId="formAwayTeam">
+            <ControlLabel>Away team</ControlLabel>
+            <FormControl type="text" placeholder="enter away team name"/>
+          </FormGroup>
 
-      <FormGroup controlId="formEventDate">
-        <Col componentClass={ControlLabel} sm={4}>
-          Description
-        </Col>
-        <Col sm={8}>
-          <FormControl
-            className={styles.description}
-            componentClass="textarea"
-            placeholder="enter description"
-          />
-        </Col>
-      </FormGroup>
+          <FormGroup controlId="formEventPassword">
+            <ControlLabel>Password</ControlLabel>
+            <FormControl type="password" placeholder="enter password"/>
+          </FormGroup>
 
-      <FormGroup>
-        <Col smOffset={4} sm={8}>
-          <Button type="submit">Add event</Button>
+          <FormGroup controlId="formEventPasswordConfirm">
+            <ControlLabel>Confirm password</ControlLabel>
+            <FormControl type="password" placeholder="confirm your password"/>
+          </FormGroup>
+
+          <FormGroup controlId="formEventDesc">
+            <ControlLabel>Description</ControlLabel>
+            <FormControl
+              componentClass="textarea"
+              placeholder="enter description"
+              style={{ resize: 'none', minHeight: '120px' }}
+            />
+          </FormGroup>
         </Col>
-      </FormGroup>
-    </Form>
+
+        <Col sm={6}>
+          <FormGroup controlId="formEventDate">
+            <ControlLabel>When</ControlLabel>
+            <InputMoment moment={moment()} style={{ width: '100%' }}/>
+          </FormGroup>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col sm={6} style={{ textAlign: 'right' }}>
+          <Button type="submit" bsSize="large">Create your event</Button>
+        </Col>
+      </Row>
+    </form>
   </div>
 );
 
