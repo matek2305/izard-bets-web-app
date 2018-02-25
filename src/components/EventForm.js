@@ -3,6 +3,8 @@ import moment from 'moment';
 import InputMoment from 'input-moment';
 import { FormGroup, Col, Row, ControlLabel, FormControl } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { createEvent } from '../actions';
 
 import 'input-moment/dist/input-moment.css';
 import './EventForm.css';
@@ -19,19 +21,14 @@ class EventForm extends React.Component {
 
   render() {
     const { homeTeamName, awayTeamName, password, passwordConfirm, description, date } = this.state;
+    const { dispatch } = this.props;
 
     return (
       <div className="event-form-container">
         <h1 className="event-form-header">
           Event details
         </h1>
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            console.log(JSON.stringify(this.state));
-          }}
-          className="event-form"
-          >
+        <form className="event-form">
           <Row>
             <Col md={7} sm={12}>
               <FormGroup controlId="formHomeTeam">
@@ -100,7 +97,11 @@ class EventForm extends React.Component {
 
           <Row>
             <Col md={7} sm={12} className="event-form-btn-col">
-              <Button bsStyle="primary" bsSize="large" type="submit">
+              <Button
+                onClick={() => dispatch(createEvent(this.state))}
+                bsStyle="primary"
+                bsSize="large"
+                >
                 Create your event
               </Button>
             </Col>
@@ -111,4 +112,6 @@ class EventForm extends React.Component {
   }
 };
 
-export default EventForm;
+
+
+export default connect()(EventForm);
