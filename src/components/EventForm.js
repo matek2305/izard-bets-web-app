@@ -24,7 +24,7 @@ class EventForm extends React.Component {
     const { dispatch } = this.props;
 
     return (
-      <div className="event-form-container">
+      <div>
         <h1 className="event-form-header">
           Event details
         </h1>

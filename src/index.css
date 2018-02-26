@@ -1,11 +1,16 @@
 html, body {
   height: 100%;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 div#root {
   display: table;
   height: 100%;
   margin: 0 auto;
+}
+
+.view-container {
+  display: table-cell;
+  vertical-align: middle;
 }
