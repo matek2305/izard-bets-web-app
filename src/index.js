@@ -2,16 +2,30 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router-dom';
-import { ConnectedRouter } from 'react-router-redux';
-import { configureStore, history } from './configureStore';
+import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
+import { createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+import createHistory from 'history/createBrowserHistory';
+import Home from './home/Home';
+import EventForm from './event/view/CreateEvent';
+import EventCreated from './event/view/EventCreated';
+import rootReducer from './rootReducer';
 import registerServiceWorker from './registerServiceWorker';
-import EventForm from './components/EventForm';
-import Home from './components/Home';
-import EventCreated from './components/EventCreated';
 
-import './index.css';
+import './style.css';
 
-const store = configureStore();
+const history = createHistory();
+
+const middlewares = [thunk, routerMiddleware(history)];
+if (process.env.NODE_ENV !== 'production') {
+  middlewares.push(logger);
+}
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(...middlewares)
+);
 
 render(
   <Provider store={store}>

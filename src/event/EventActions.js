@@ -1,5 +1,5 @@
-import * as api from '../api';
 import { push } from 'react-router-redux';
+import * as api from './EventApi';
 
 export const createEvent = (data) => (dispatch) =>
   api.createEvent(data).then(response => {

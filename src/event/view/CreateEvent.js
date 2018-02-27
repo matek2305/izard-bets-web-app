@@ -1,15 +1,14 @@
 import React from 'react';
-import moment from 'moment';
-import InputMoment from 'input-moment';
-import { FormGroup, Col, Row, ControlLabel, FormControl } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+import { Button, FormGroup, Col, Row, ControlLabel, FormControl } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { createEvent } from '../actions';
+import InputMoment from 'input-moment';
+import moment from 'moment';
+import { createEvent } from '../EventActions';
 
 import 'input-moment/dist/input-moment.css';
-import './EventForm.css';
+import './style.css';
 
-class EventForm extends React.Component {
+class CreateEvent extends React.Component {
   state = {
     homeTeamName: '',
     awayTeamName: '',
@@ -112,6 +111,4 @@ class EventForm extends React.Component {
   }
 };
 
-
-
-export default connect()(EventForm);
+export default connect()(CreateEvent);
