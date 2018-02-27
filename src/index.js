@@ -28,11 +28,11 @@ const store = createStore(
 
 render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
+    <ConnectedRouter basename={process.env.PUBLIC_URL} history={history}>
       <div className="view-container">
-        <Route exact path={process.env.PUBLIC_URL + '/'} component={Home}/>
-        <Route path={process.env.PUBLIC_URL + '/createEvent'} component={CreateEvent}/>
-        <Route path={process.env.PUBLIC_URL + '/eventCreated'} component={EventCreated}/>
+        <Route exact path="/" component={Home}/>
+        <Route path="/createEvent" component={CreateEvent}/>
+        <Route path="/eventCreated" component={EventCreated}/>
       </div>
     </ConnectedRouter>
   </Provider>,

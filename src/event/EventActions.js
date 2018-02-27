@@ -7,5 +7,5 @@ export const createEvent = (data) => (dispatch) =>
       type: 'CREATE_EVENT_SUCCESS',
       response
     });
-    dispatch(push('/eventCreated'));
+    dispatch(push('./eventCreated'));
   });
