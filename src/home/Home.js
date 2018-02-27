@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => (
   <div style={{ width: 400 }}>
-    <Link to="./createEvent">
+    <Link to={process.env.PUBLIC_URL + '/createEvent'}>
       <Button bsStyle="primary" bsSize="large" block>
         Create event
       </Button>
