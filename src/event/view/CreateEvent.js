@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, FormGroup, Col, Row, ControlLabel, FormControl } from 'react-bootstrap';
+import { Button, FormGroup, Col, Row, ControlLabel, FormControl, Alert } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import InputMoment from 'input-moment';
 import moment from 'moment';
@@ -20,13 +20,20 @@ class CreateEvent extends React.Component {
 
   render() {
     const { homeTeamName, awayTeamName, password, passwordConfirm, description, date } = this.state;
-    const { dispatch } = this.props;
+    const { dispatch, error } = this.props;
 
     return (
       <div>
         <h1 className="event-form-header">
           Event details
         </h1>
+
+        { error &&
+          <Alert bsStyle="danger">
+            <strong>Error occured: </strong>{ error.message || 'Something went wrong :(' }
+          </Alert>
+        }
+        
         <form className="event-form">
           <Row>
             <Col md={7} sm={12}>
@@ -111,4 +118,10 @@ class CreateEvent extends React.Component {
   }
 };
 
-export default connect()(CreateEvent);
+const mapStateToProps = state => {
+  return {
+    error: state.event.error
+  }
+};
+
+export default connect(mapStateToProps)(CreateEvent);

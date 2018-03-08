@@ -1,8 +1,8 @@
 const eventReducer = (state = {}, action) => {
   if (action.type === 'CREATE_EVENT_SUCCESS') {
-    return {
-      ...action.response
-    };
+    return { created: { ...action.response }};
+  } else if (action.type === 'CREATE_EVENT_FAILED') {
+    return { error: { ...action.response }};
   }
 
   return state;

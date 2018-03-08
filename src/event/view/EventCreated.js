@@ -15,7 +15,7 @@ EventCreated.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    event: state.event
+    event: state.event.created
   };
 };
 

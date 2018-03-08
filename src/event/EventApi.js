@@ -1,6 +1,6 @@
-export const createEvent = (data) => {
-  console.log('POST /events');
-  return delay(500).then(() => data);
-}
+import axios from 'axios';
 
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+export const createEvent = (data) => {
+  return axios.post('api/izard/events', data)
+    .then(response => response.data);
+}
