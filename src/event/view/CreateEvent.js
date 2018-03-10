@@ -30,10 +30,10 @@ class CreateEvent extends React.Component {
 
         { error &&
           <Alert bsStyle="danger">
-            <strong>Error occured: </strong>{ error.message || 'Something went wrong :(' }
+            { error.message || 'Oh no, something went wrong :(' }
           </Alert>
         }
-        
+
         <form className="event-form">
           <Row>
             <Col md={7} sm={12}>
