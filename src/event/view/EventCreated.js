@@ -1,9 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Moment from 'react-moment';
 import { connect } from 'react-redux';
 
 const EventCreated = ({ event }) => (
-  <div>
+  <div style={{ textAlign: 'center' }}>
+    <div>
+      <Moment date={event.date} format="DD MMMM YYYY" /><br/>
+      <Moment date={event.date} format="HH:mm" />
+    </div>
     <div style={{
       display: 'table',
       textAlign: 'center',
