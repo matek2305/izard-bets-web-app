@@ -14,5 +14,22 @@ export const createEvent = (data) => (dispatch) =>
       dispatch({
         type: 'CREATE_EVENT_FAILED',
         response: error.response.data
-      })
-    });
+      });
+    }
+  );
+
+export const getEvent = (id) => (dispatch) =>
+  api.getEvent(id).then(
+    response => {
+      dispatch({
+        type: 'GET_EVENT_SUCCESS',
+        response
+      });
+    },
+    error => {
+      dispatch({
+        type: 'GET_EVENT_FAILED',
+        response: error.response.data
+      });
+    }
+  );
