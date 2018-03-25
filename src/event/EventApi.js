@@ -5,7 +5,7 @@ export const createEvent = (data) => {
     .then(response => response.data);
 }
 
-export const getEvent = (id) => {
-  return axios.get(`https://demo2071198.mockable.io/events${id}`)
+export const fetchEvent = (id) => {
+  return axios.get(`https://demo2071198.mockable.io/events/${id}`)
     .then(response => response.data);
 }

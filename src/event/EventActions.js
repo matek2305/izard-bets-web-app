@@ -18,17 +18,17 @@ export const createEvent = (data) => (dispatch) =>
     }
   );
 
-export const getEvent = (id) => (dispatch) =>
-  api.getEvent(id).then(
+export const fetchEvent = (id) => (dispatch) =>
+  api.fetchEvent(id).then(
     response => {
       dispatch({
-        type: 'GET_EVENT_SUCCESS',
+        type: 'FETCH_EVENT_SUCCESS',
         response
       });
     },
     error => {
       dispatch({
-        type: 'GET_EVENT_FAILED',
+        type: 'FETCH_EVENT_FAILED',
         response: error.response.data
       });
     }

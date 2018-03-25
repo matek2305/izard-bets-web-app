@@ -3,6 +3,7 @@ import React from 'react';
 import Moment from 'react-moment';
 import { Well } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { getCreatedEvent } from '../eventReducer';
 
 const EventCreated = ({ event }) => {
   const eventUrl = `${window.location.origin}/events/${event.id}`;
@@ -59,7 +60,7 @@ EventCreated.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    event: state.event.created
+    event: getCreatedEvent(state)
   };
 };
 
