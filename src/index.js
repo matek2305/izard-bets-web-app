@@ -7,6 +7,7 @@ import createHistory from 'history/createBrowserHistory';
 import Home from './home/Home';
 import CreateEvent from './event/view/CreateEvent';
 import EventCreated from './event/view/EventCreated';
+import EventDetails from './event/view/EventDetails';
 import configureStore from './configureStore';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -22,6 +23,7 @@ render(
         <Route exact path={process.env.PUBLIC_URL + '/'} component={Home}/>
         <Route path={process.env.PUBLIC_URL + '/createEvent'} component={CreateEvent}/>
         <Route path={process.env.PUBLIC_URL + '/eventCreated'} component={EventCreated}/>
+        <Route path={process.env.PUBLIC_URL + '/events/:id'} component={EventDetails}/>
       </div>
     </ConnectedRouter>
   </Provider>,
