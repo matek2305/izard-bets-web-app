@@ -13,9 +13,7 @@ const EventCreated = ({ event }) => {
 
   return (
     <div>
-      <div className="created-event-details-container">
-        <EventDetails event={event} style={{margin: '32px'}} />
-      </div>
+      <EventDetails event={event} />
       <div className="created-event-links-container">
         <p>Your event url (remember your password if you want to be able to update event score when it finish)</p>
         <Well bsSize="small"><a href={eventUrl}>{eventUrl}</a></Well>

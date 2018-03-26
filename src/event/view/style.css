@@ -20,12 +20,12 @@
   text-align: right;
 }
 
-.created-event-details-container {
-  margin: 32px;
-}
-
 .created-event-links-container {
   text-align: center;
+}
+
+.event-details-container {
+  margin: 32px;
 }
 
 .event-date-container {
@@ -34,7 +34,7 @@
   align-items: center;
 }
 
-.event-details-container {
+.event-teams-container {
   display: flex;
   align-items: center;
 }
