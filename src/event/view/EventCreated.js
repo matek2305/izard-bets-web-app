@@ -8,8 +8,8 @@ import { getCreatedEvent } from '../eventReducer';
 import './style.css';
 
 const EventCreated = ({ event }) => {
-  const eventUrl = `${window.location.origin}/events/${event.id}`;
-  const joinEventUrl = `${window.location.origin}/events/${event.id}/join?invitationCode=${event.invitationCode}`;
+  const eventUrl = `${ process.env.PUBLIC_URL || window.location.origin}/events/${event.id}`;
+  const joinEventUrl = `${ process.env.PUBLIC_URL || window.location.origin}/events/${event.id}/join?invitationCode=${event.invitationCode}`;
 
   return (
     <div>
