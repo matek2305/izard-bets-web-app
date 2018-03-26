@@ -20,6 +20,14 @@
   text-align: right;
 }
 
+.created-event-details-container {
+  margin: 32px;
+}
+
+.created-event-links-container {
+  text-align: center;
+}
+
 .event-date-container {
   display: flex;
   flex-direction: column;
