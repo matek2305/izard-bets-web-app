@@ -1,5 +1,6 @@
 import React from 'react';
 import EventDetails from './EventDetails';
+import { Well } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { fetchEvent } from '../EventActions';
 import { getEventDetails } from '../eventReducer';
@@ -16,8 +17,17 @@ class EventDetailsView extends React.Component {
   }
 
   render() {
+    const { event } = this.props;
     return (
-      <EventDetails { ...this.props } />
+      <div>
+        <div className="created-event-links-container">
+          <p>Your event url (remember your password if you want to be able to update event score when it finish)</p>
+          <Well bsSize="small">
+            <a href={window.location.href}>{window.location.href}</a>
+          </Well>
+        </div>
+        <EventDetails event={event} />
+      </div>
     );
   }
 };

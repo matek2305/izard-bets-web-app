@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import Moment from 'react-moment';
 
@@ -16,5 +17,9 @@ const EventDetails = ({ event }) => (
     </div>
   </div>
 );
+
+EventDetails.propTypes = {
+  event: PropTypes.object.isRequired
+};
 
 export default EventDetails;

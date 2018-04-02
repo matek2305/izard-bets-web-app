@@ -8,7 +8,7 @@ export const createEvent = (data) => (dispatch) =>
         type: 'CREATE_EVENT_SUCCESS',
         response
       });
-      dispatch(push(`${process.env.PUBLIC_URL}/eventCreated`));
+      dispatch(push(`${process.env.PUBLIC_URL}/events/${response.id}`));
     },
     error => {
       dispatch({
