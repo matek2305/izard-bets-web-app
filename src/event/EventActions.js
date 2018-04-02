@@ -1,5 +1,10 @@
+import axios from 'axios';
 import { push } from 'react-router-redux';
-import * as api from './EventApi';
+import EventsApiClient from './EventsApiClient';
+
+const api = new EventsApiClient(axios.create({
+  baseURL: 'https://demo2071198.mockable.io'
+}));
 
 export const createEvent = (data) => (dispatch) =>
   api.createEvent({ ...data, secret: data.password }).then(

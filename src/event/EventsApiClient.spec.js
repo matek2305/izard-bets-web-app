@@ -1,7 +1,8 @@
 import Pact from 'pact';
 import path from 'path';
+import axios from 'axios';
 
-import * as api from './EventApi';
+import EventsApiClient from './EventsApiClient';
 
 const PACT_SERVER_PORT = 9000;
 const PACT_SPEC_VERSION = 2;
@@ -16,11 +17,45 @@ const provider = Pact({
 });
 
 const expectedResult = {
-  id: '5aa54833e9a92a2d140a9aa0',
-  homeTeamName: 'Polska',
-  awayTeamName: 'Senegal',
-  date: '2018-06-19T15:00:00'
+  "id": "5aa54833e9a92a2d140a9aa0",
+  "homeTeamName": "Polska",
+  "awayTeamName": "Senegal",
+  "description": "faza grupowa, grupa H, kolejka 1",
+  "date": "2018-06-19T15:00:29.722",
+  "homeTeamScore": null,
+  "awayTeamScore": null,
+  "invitationCode": "clrZLdgR",
+  "status": "CREATED",
+  "createdAt": null,
+  "lastUpdateAt": "2018-03-11T16:16:03.179",
+  "version": "0",
+  "bets": [
+    {
+      "who": "Zenek",
+      "homeTeamScore": 1,
+      "awayTeamScore": 2
+    },
+    {
+      "who": "Tadek",
+      "homeTeamScore": 0,
+      "awayTeamScore": 2
+    },
+    {
+      "who": "Mateusz U",
+      "homeTeamScore": 1,
+      "awayTeamScore": 1
+    },
+    {
+      "who": "Sikor",
+      "homeTeamScore": 1,
+      "awayTeamScore": 0
+    }
+  ]
 };
+
+const api = new EventsApiClient(axios.create({
+  baseURL: 'http://localhost:9000'
+}));
 
 describe('pact with events api', () => {
   beforeAll(() => {
