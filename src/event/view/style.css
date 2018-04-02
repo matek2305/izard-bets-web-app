@@ -39,6 +39,12 @@
   align-items: center;
 }
 
+.event-bets-container {
+  display: flex;
+  justify-content: center;
+  margin: 24px;
+}
+
 .team-name {
   width: 300px;
   text-transform: uppercase;

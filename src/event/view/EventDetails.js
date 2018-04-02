@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Moment from 'react-moment';
+import BetList from '../../common/BetList';
 
 import './style.css';
 
@@ -15,6 +16,11 @@ const EventDetails = ({ event }) => (
       <span className="versus">VS</span>
       <span className="team-name away-team">{event.awayTeamName}</span>
     </div>
+    { event.bets &&
+      <div className="event-bets-container">
+        <BetList { ...event } />
+      </div>
+    }
   </div>
 );
 
