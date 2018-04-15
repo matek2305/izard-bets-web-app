@@ -1,4 +1,4 @@
-import Pact from 'pact';
+import { Pact } from '@pact-foundation/pact';
 import path from 'path';
 import axios from 'axios';
 
@@ -7,7 +7,7 @@ import EventsApiClient from './EventsApiClient';
 const PACT_SERVER_PORT = 9000;
 const PACT_SPEC_VERSION = 2;
 
-const provider = Pact({
+const provider = new Pact({
   consumer: 'Izard Bets Web App',
   provider: 'Izard Bets Events API',
   port: PACT_SERVER_PORT,
@@ -16,7 +16,15 @@ const provider = Pact({
   dir: path.resolve(process.cwd(), 'pacts')
 });
 
-const expectedResult = {
+beforeAll((done) => {
+  return provider.setup().then(() => done());
+})
+
+afterAll((done) => {
+  return provider.finalize().then(() => done());
+})
+
+const expectedBody = {
   "id": "5aa54833e9a92a2d140a9aa0",
   "homeTeamName": "Polska",
   "awayTeamName": "Senegal",
@@ -58,10 +66,6 @@ const api = new EventsApiClient(axios.create({
 }));
 
 describe('pact with events api', () => {
-  beforeAll(() => {
-    return provider.setup();
-  })
-
   describe('when call for event details', () => {
     beforeEach(() => {
       return provider.addInteraction({
@@ -75,19 +79,18 @@ describe('pact with events api', () => {
           headers: {
             'Content-Type': 'application/json; charset=utf-8'
           },
-          body: expectedResult
+          body: expectedBody
         }
       })
     })
 
-    it('should return details in response', async () => {
-      const details = await api.fetchEvent('5aa54833e9a92a2d140a9aa0');
-      expect(details).toEqual(expectedResult);
-      await provider.verify();
+    it('should return details in response', (done) => {
+      return api.fetchEvent('5aa54833e9a92a2d140a9aa0')
+        .then(response => {
+          expect(response).toEqual(expectedBody)
+          done()
+        })
+        .then(() => provider.verify());
     })
-  })
-
-  afterAll(() => {
-    return provider.finalize();
   })
 });
