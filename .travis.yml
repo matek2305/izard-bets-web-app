@@ -7,7 +7,7 @@ cache:
 script:
   - npm test
   - npm run build
-  - npm run publishPacts --pactBrokerUsername=$pact_broker_username --pactBrokerPassword=$pact_broker_password
+  - npm run publishPacts -- --pactBrokerUsername=$pact_broker_username --pactBrokerPassword=$pact_broker_password
 deploy:
   edge:
     branch: pages-ivar-set
